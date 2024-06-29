@@ -1,0 +1,5 @@
+{
+  "https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4": { "integrity": "sha512-zV3mKptKxe8iDYWiW+r4DMTcgKvBwS1Hofd4fOSjciu07TCTwU6VJ0czEa1bikW8lcp47x9FPF3VA47G+0q3OQ==", "contentType": "video/mp4" },
+  "https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4?t=2024-06-26T05%3A59%3A23.186Z": { "integrity": "sha512-zV3mKptKxe8iDYWiW+r4DMTcgKvBwS1Hofd4fOSjciu07TCTwU6VJ0czEa1bikW8lcp47x9FPF3VA47G+0q3OQ==", "contentType": "video/mp4" },
+  "version": 1
+}

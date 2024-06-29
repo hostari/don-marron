@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  @apply font-sans;
+}
+
+.divider {
+  height: 4px;
+  background-color: #212427;
+  margin: 20px 0;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* main#article-content .markdown p {
+  @apply pb-2;
+}
+
+main#article-content .markdown h2 {
+  @apply text-2xl py-5 font-bold
+}
+
+main#article-content .markdown h1 {
+  @apply text-3xl py-5 font-bold
+}
+
+main#article-content .markdown ul {
+  padding-left: 40px;
+  list-style: initial;
+}
+
+a {
+  color: #6F3CDC;
+}
+
+
+h1, h2, h3, h4, h5 {
+  @apply font-serif;
+} */

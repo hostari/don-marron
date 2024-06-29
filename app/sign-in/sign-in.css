@@ -1,0 +1,39 @@
+.bg-image {
+  background-image: url("/sign-in-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p {
+  margin:20px 0;
+  position:relative;
+  display:inline-block;
+}
+
+label {
+  padding:10px;
+  pointer-events: none;
+  position:absolute;
+  left:0;
+  top:0;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  background: none;
+}
+
+input {
+  padding:10px;
+  background: none;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+  border: none;
+  opacity:1;
+  transform: scale(0.75) translateY(-70%) translateX(-14px);
+}
+
+input:focus-visible {
+  outline: none;
+}

@@ -1,0 +1,26 @@
+video {
+  clip-path: url(#overlay);
+  -webkit-clip-path: url(#overlay);
+  width: 100%;
+  z-index: 1;
+}
+
+.cls-1 {
+  fill: #ffffff;
+  stroke-width: 0px;
+}
+
+.canvas {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+
+.clip {
+  width: 100%;
+  height: 100%;
+
+  background-color: orange;
+  content: "";
+  clip-path: url(#eyePath);
+}
