@@ -6,7 +6,7 @@
     "dev": "next dev & npx next-video sync -w",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "npx next-video sync && next start",
+    "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
