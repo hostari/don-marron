@@ -18,20 +18,35 @@ export default function Page() {
 
   const supabase = createBrowserClient();
 
+  // const [formValue, setFormValue] = useState({
+  //   firstName: "John",
+  //   lastName: "Doe",
+  //   email: "john.doe@example.com",
+  //   birthDate: new Date("1990-01-01").toDateString(),
+  //   address: "123 Main St, Anytown, USA",
+  //   companyName: "Example Corp",
+  //   title: "Software Engineer",
+  //   workEmail: "john.doe@company.com",
+  //   instagram: "johndoe_insta",
+  //   facebook: "johndoe_fb",
+  //   reason: "Interested in fashion",
+  //   fashionStyle: "Casual",
+  //   lifestyle: "Active",
+  // });
   const [formValue, setFormValue] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
-    birthDate: new Date("1990-01-01").toDateString(),
-    address: "123 Main St, Anytown, USA",
-    companyName: "Example Corp",
-    title: "Software Engineer",
-    workEmail: "john.doe@company.com",
-    instagram: "johndoe_insta",
-    facebook: "johndoe_fb",
-    reason: "Interested in fashion",
-    fashionStyle: "Casual",
-    lifestyle: "Active",
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthDate: new Date().toISOString().split("T")[0],
+    address: "",
+    companyName: "",
+    title: "",
+    workEmail: "",
+    instagram: "",
+    facebook: "",
+    reason: "",
+    fashionStyle: "",
+    lifestyle: "",
   });
 
   const {
@@ -77,7 +92,7 @@ export default function Page() {
       });
 
       await apiClient.post("/send-email", {
-        to: "rafael@hostari.com",
+        to: process.env.NEXT_PUBLIC_FORWARD_REPLIES_TO,
         subject: "New Member Application Received",
         text: `A new member application has been received from ${formData.firstName} ${formData.lastName}.`,
         html: `<p>A new member application has been received from ${formData.firstName} ${formData.lastName}.</p>`,
