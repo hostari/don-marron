@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 import config from "@/config";
 import Slider from "@/components/Slider";
 
-export default async function Dashboard() {
+export default async function MemberPage() {
   const supabase = createServerClient({ cookies });
   const { data: userData, error } = await supabase.auth.getUser();
   if (error) {

@@ -18,26 +18,3 @@ export const createServerClient = <T = Database>({
     },
   });
 };
-
-export const createRouteHandlerClient = <T = any>({
-  cookies,
-}: {
-  cookies: typeof nextCookies;
-}): SupabaseClient<T> => {
-  const cookieStore = cookies();
-  const { supabaseUrl, supabaseAnonKey } = getSupabaseCredentials();
-
-  return serverFn<T>(supabaseUrl, supabaseAnonKey, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value;
-      },
-      set(name: string, value: string, options: CookieOptions) {
-        cookieStore.set({ name, value, ...options });
-      },
-      remove(name: string, options: CookieOptions) {
-        cookieStore.set({ name, value: "", ...options });
-      },
-    },
-  });
-};

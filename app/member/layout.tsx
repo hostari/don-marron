@@ -1,16 +1,16 @@
 import { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import config from "@/config";
 import Header from "../_components/header";
+import { createServerClient } from "@/libs/supabase/server";
 
 export default async function LayoutPrivate({
   children,
 }: {
   children: ReactNode;
 }) {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerClient({ cookies });
 
   const {
     data: { user },
