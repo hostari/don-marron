@@ -59,6 +59,7 @@ const config = {
         white: "#ECECEC",
         gray: "#212427B2",
         black: "#212427",
+        orange: "#904216"
       },
       borderWidth: {
         button: "2px",

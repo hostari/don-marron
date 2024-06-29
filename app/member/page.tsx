@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { features } from "./features";
 import { Divider } from "@/components/ui/divider";
-import arrowLeft from "@/public/arrow-left.svg";
-import arrowRight from "@/public/arrow-right.svg";
 import desk from "@/public/desk.png";
+import livingRoom from "@/public/living-room.png";
+import vase from "@/public/vase.png";
 import { createServerClient } from "@/libs/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import config from "@/config";
+import Slider from "@/components/Slider";
 
 export default async function Dashboard() {
   const supabase = createServerClient({ cookies });
@@ -18,6 +18,27 @@ export default async function Dashboard() {
   }
 
   const { data: memberData } = await supabase.from("Members").select("*").eq("email", userData.user.email).single();
+
+  const slides = [
+    {
+      title: "First Members Meet Up",
+      description: "Join your fellow Don Marrón members for dinner, drinks and a distinguished evening at _____ on ______. The only thing you must worry about is looking good and showing up, and we already took care of the first part.",
+      backgroundColor: "brown",
+      image: desk
+    },
+    {
+      title: "Upcoming Collection",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      backgroundColor: "black",
+      image: livingRoom
+    },
+    {
+      title: "Our Monthly Calendar",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      backgroundColor: "orange",
+      image: vase
+    },
+  ];
 
   return (
     <main className="">
@@ -33,7 +54,7 @@ export default async function Dashboard() {
           return (
             <div
               key={feat.description}
-              className="relative flex flex-col items-center justify-center w-full flex-1 hover:bg-blend-color-dodge transition-all duration-300 cursor-pointer"
+              className="relative flex flex-col items-center justify-center w-full flex-1 hover:bg-blend-color-dodge transition-all duration-300"
               style={{ 
                 background: `linear-gradient(180deg, #000000 49.38%, rgba(102, 102, 102, 0) 124.3%), url(${feat.image.src})`,
                 height: 'calc(100vw / 3)',
@@ -52,30 +73,7 @@ export default async function Dashboard() {
         })}
       </div>
 
-      <div className="bg-brown py-20 text-white flex justify-between">
-        <Image src={arrowLeft} alt="arrow left" className="mx-10" />
-        <div className="flex flex-col items-center justify-center w-1/2 pr-6">
-          <div className="flex flex-col justify-between h-full">
-            <p className="uppercase tracking-[0.15em]">Latest Update</p>
-            <div className="flex flex-col gap-[45px]">
-              <span className="text-5xl">First Members Meet Up</span>
-              <p className="text-xl leading-9">
-                Join your fellow Don Marrón members for dinner, drinks and a
-                distinguished evening at _____ on ______. The only thing you
-                must worry about is looking good and showing up, and we already
-                took care of the first part.
-              </p>
-              <Button className="uppercase text-white border border-white w-[225px]">
-                Find Out More
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div>
-          <Image src={desk} alt="desk" />
-        </div>
-        <Image src={arrowRight} alt="arrow right" className="mx-10" />
-      </div>
+      <Slider slides={slides} />
     </main>
   );
 }

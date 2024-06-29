@@ -18,6 +18,19 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Need to manually add these classes for the slider */
+.bg-orange {
+  background-color: #904216;
+}
+
+.bg-black {
+  background-color: #212427;
+}
+
+.bg-brown {
+  background-color: #422916;
+}
+
 /* main#article-content .markdown p {
   @apply pb-2;
 }
