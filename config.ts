@@ -5,9 +5,9 @@ const config = {
   // REQUIRED
   appName: "Don Marrone",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
-  appDescription: "The only AI tool that you need for SEO.",
+  appDescription: "",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "hostari.com",
+  domainName: "donmarron.com",
   mailgun: {
     // subdomain to use when sending emails, if you don't have a subdomain, just remove it. Highly recommended to have one (i.e. mg.yourdomain.com or mail.yourdomain.com)
     subdomain: "",
