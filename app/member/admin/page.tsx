@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Divider } from "@/components/ui/divider";
 import { MemberApplication } from "@/lib/types/models";
-import apiClient from "@/libs/api";
 import config from "@/config";
 import { useRouter } from "next/navigation";
 
@@ -73,7 +72,7 @@ export default function AdminPage() {
       console.log({ email });
 
       if (status === "approved") {
-        const { data: signUpData, error: signUpError } =
+        const { error: signUpError } =
           await supabase.auth.admin.inviteUserByEmail(email, {
             redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/register`,
           });
@@ -83,7 +82,7 @@ export default function AdminPage() {
           return;
         }
 
-        const { data: memberData, error: memberError } = await supabase
+        const { error: memberError } = await supabase
           .from("Members")
           .insert({
             email,
