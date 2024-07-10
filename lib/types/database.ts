@@ -66,29 +66,41 @@ export type Database = {
       Members: {
         Row: {
           created_at: string;
+          customerId: string | null;
           dateAccepted: string;
           email: string | null;
           firstName: string | null;
-          id: number;
+          hasContract: boolean;
+          hasWardrobe: boolean;
+          id: string;
           lastName: string | null;
+          priceId: string | null;
           role: Database["public"]["Enums"]["ProfileRoles"];
         };
         Insert: {
           created_at?: string;
+          customerId?: string | null;
           dateAccepted: string;
           email?: string | null;
           firstName?: string | null;
-          id?: number;
+          hasContract?: boolean;
+          hasWardrobe?: boolean;
+          id?: string;
           lastName?: string | null;
+          priceId?: string | null;
           role?: Database["public"]["Enums"]["ProfileRoles"];
         };
         Update: {
           created_at?: string;
+          customerId?: string | null;
           dateAccepted?: string;
           email?: string | null;
           firstName?: string | null;
-          id?: number;
+          hasContract?: boolean;
+          hasWardrobe?: boolean;
+          id?: string;
           lastName?: string | null;
+          priceId?: string | null;
           role?: Database["public"]["Enums"]["ProfileRoles"];
         };
         Relationships: [];

@@ -72,7 +72,7 @@ export default function AdminPage() {
       console.log({ email });
 
       if (status === "approved") {
-        const { error: signUpError } =
+        const { data: userData, error: signUpError } =
           await supabase.auth.admin.inviteUserByEmail(email, {
             redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/register`,
           });
@@ -82,14 +82,13 @@ export default function AdminPage() {
           return;
         }
 
-        const { error: memberError } = await supabase
-          .from("Members")
-          .insert({
-            email,
-            firstName,
-            lastName,
-            dateAccepted: new Date(),
-          });
+        const { error: memberError } = await supabase.from("Members").insert({
+          id: userData?.user?.id,
+          email,
+          firstName,
+          lastName,
+          dateAccepted: new Date().toISOString(),
+        });
 
         if (memberError) {
           console.error(

@@ -3,9 +3,9 @@ import { createBrowserClient as browserFn } from "@supabase/ssr";
 import { getSupabaseCredentials } from "./credentials";
 import { Database } from "@/lib/types/database";
 
-export const createBrowserClient = (): SupabaseClient => {
+export const createBrowserClient = (): SupabaseClient<Database> => {
   const { supabaseUrl, supabaseAnonKey, supabaseAdminKey } =
     getSupabaseCredentials();
 
-  return browserFn<Database>(supabaseUrl, supabaseAdminKey);
+  return browserFn(supabaseUrl, supabaseAdminKey);
 };

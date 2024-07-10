@@ -30,6 +30,17 @@ a:hover {
 .bg-brown {
   background-color: #422916;
 }
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+
+      video {
+        clip-path: url(#overlay);
+        -webkit-clip-path: url(#overlay);
+        width: 100%;
+        z-index: 1;
+      }
 
 /* main#article-content .markdown p {
   @apply pb-2;

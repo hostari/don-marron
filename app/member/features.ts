@@ -15,25 +15,30 @@ export const features = [
     image: events,
     description: "Events",
     icon: eventsIcon,
+    href: "/member/events",
   },
   {
     image: wardrobe,
     description: "My Wardrobe",
     icon: wardrobeIcon,
+    href: "/member/wardrobe",
   },
   {
     image: payment,
     description: "Payment",
     icon: paymentIcon,
+    href: "/member/payment",
   },
   {
     image: contract,
     description: "Contract",
     icon: contractIcon,
+    href: "/member/contract",
   },
   {
     image: appointment,
     description: "Appointment",
     icon: appointmentIcon,
+    href: "/member/appointment",
   },
 ];
