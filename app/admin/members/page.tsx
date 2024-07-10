@@ -44,28 +44,6 @@ export default function AdminPage() {
     fetchMembers();
   }, []);
 
-  useEffect(() => {
-    const validateAdmin = async () => {
-      const { data: userData, error } = await supabase.auth.getUser();
-
-      if (error) {
-        router.push(config.auth.loginUrl);
-      }
-
-      const { data: memberData } = await supabase
-        .from("Members")
-        .select("role")
-        .eq("email", userData?.user?.email)
-        .single();
-
-      if (memberData?.role !== "admin") {
-        router.push("/member");
-      }
-    };
-
-    validateAdmin();
-  }, []);
-
   const handleFileUpload = async (
     event: ChangeEvent<HTMLInputElement>,
     type: "wardrobe" | "contract",
