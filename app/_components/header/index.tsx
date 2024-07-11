@@ -46,7 +46,7 @@ const Header = ({
       )}
 
       {!isAuthenticated && !noLinks && (
-        <div className="absolute right-10 flex gap-4">
+        <div className={`absolute right-10 flex gap-4 ${useWhiteLogo ? "text-white" : "text-[#212427]"}`}>
           <Link href="/sign-in">SIGN IN</Link>
           <Link href="/sign-up">MEMBERSHIP</Link>
         </div>

@@ -30,17 +30,34 @@ a:hover {
 .bg-brown {
   background-color: #422916;
 }
-      .cls-1 {
-        fill: #fff;
-        stroke-width: 0px;
-      }
 
-      video {
-        clip-path: url(#overlay);
-        -webkit-clip-path: url(#overlay);
-        width: 100%;
-        z-index: 1;
-      }
+video {
+  clip-path: url(#overlay);
+  -webkit-clip-path: url(#overlay);
+  width: 100%;
+  z-index: 1;
+}
+
+#myVideo {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.hero {
+  z-index: 99;
+  position: relative;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
 
 /* main#article-content .markdown p {
   @apply pb-2;
