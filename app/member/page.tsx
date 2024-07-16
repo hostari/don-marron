@@ -59,13 +59,13 @@ export default async function MemberPage() {
         </h1>
         <Divider className="w-[120px] mx-auto" />
       </div>
-      <div className="max-w-[1240px] mx-auto flex gap-3 pb-30">
+      <div className="max-w-[1240px] mx-auto flex flex-wrap gap-3 pb-30">
         {features.map((feat) => {
           return (
             <Link
               key={feat.description}
               href={feat.href}
-              className="relative flex flex-col items-center justify-center w-full flex-1 hover:bg-blend-color-dodge transition-all duration-300"
+              className="relative flex flex-col items-center justify-center w-full md:flex-1 hover:bg-blend-color-dodge transition-all duration-300"
               style={{
                 background: `linear-gradient(180deg, #000000 49.38%, rgba(102, 102, 102, 0) 124.3%), url(${feat.image.src})`,
                 height: "calc(100vw / 3)",

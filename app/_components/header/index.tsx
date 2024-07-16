@@ -32,11 +32,13 @@ const Header = ({
       className={`w-full flex justify-center items-center py-5 px-10 ${className}`}
     >
       <div className="flex items-center">
-        <Image
-          alt="logo"
-          src={useWhiteLogo ? whiteLogo : rusticLogo}
-          className="w-[45px] text-[#212427]"
-        />
+        <Link href="/">
+            <Image
+              alt="logo"
+              src={useWhiteLogo ? whiteLogo : rusticLogo}
+              className="w-[45px] text-[#212427]"
+          />
+        </Link>
       </div>
 
       {isAuthenticated && (

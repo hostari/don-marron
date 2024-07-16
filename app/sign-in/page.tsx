@@ -49,12 +49,12 @@ export default function Page() {
 
   return (
     <>
-      <div className="bg-image h-screen mx-0 flex">
+      <div className="bg-image h-screen mx-0 flex flex-col md:flex-row">
         <div className="absolute w-full">
           <Header noLinks={true} useWhiteLogo={true} />
         </div>
-        <div className="text-white w-6/12 my-auto ml-auto">
-          <h2 className="text-[40px]">Members Sign In</h2>
+        <div className="text-white w-full md:w-6/12 my-auto ml-auto p-4 md:p-0">
+          <h2 className="text-[30px] md:text-[40px]">Members Sign In</h2>
           <Divider className="bg-white w-[100px]" />
 
           <form className="flex flex-col gap-y-4" onSubmit={handleLogin}>
@@ -80,7 +80,7 @@ export default function Page() {
               <Label className="text-white">PASSWORD</Label>
             </p>
 
-            <Button className="w-[145px]" type="submit" disabled={isDisabled}>
+            <Button className="w-full md:w-[145px]" type="submit" disabled={isDisabled}>
               SIGN IN
             </Button>
           </form>

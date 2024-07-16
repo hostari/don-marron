@@ -34,14 +34,14 @@ const LearnMorePage = () => {
       <Header />
       <main className="text-black">
         <section>
-          <Image src={hero} alt="hero image" className="w-full" />
-          <p className="w-full text-gray uppercase text-2xl tracking-widest py-10 text-center">
+          <Image src={hero} alt="hero image" className="h-[200px] md:h-auto w-full" />
+          <p className="w-full text-gray uppercase text-xl md:text-2xl tracking-widest py-10 text-center">
             Find Out More About
           </p>
-          <div className="flex w-full justify-center gap-x-8">
+          <div className="flex flex-col md:flex-row w-full justify-center gap-y-4 md:gap-x-8 px-4 md:px-0">
             <Link href="#brand">
               <Button
-                className="uppercase tracking-widest text-2xl w-[360px]"
+                className="uppercase tracking-widest text-xl md:text-2xl w-full md:w-[360px]"
                 size="xl"
                 variant="outline"
               >
@@ -50,7 +50,7 @@ const LearnMorePage = () => {
             </Link>
             <Link href="#membership">
               <Button
-                className="uppercase tracking-widest text-2xl w-[360px]"
+                className="uppercase tracking-widest text-xl md:text-2xl w-full md:w-[360px]"
                 size="xl"
                 variant="outline"
               >
@@ -61,7 +61,7 @@ const LearnMorePage = () => {
         </section>
 
         <div className="max-w-[1240px] mx-auto pt-[180px]">
-          <section id="brand" className="text-center pb-[200px]">
+          <section id="brand" className="text-center pb-[200px] px-4 md:px-0">
             <h2 className="text-6xl text-black">Our Brand</h2>
             <Divider className="w-[120px] mx-auto" />
             <Text>
@@ -71,7 +71,7 @@ const LearnMorePage = () => {
               gives our members access to unmatched quality and exclusive
               craftsmanship
             </Text>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div>
                 <Image src={podium} alt="podium" />
               </div>
@@ -90,7 +90,7 @@ const LearnMorePage = () => {
             </Link>
           </section>
 
-          <section id="membership" className="text-center pb-[200px]">
+          <section id="membership" className="text-center pb-[200px] px-4 md:px-0">
             <h2 className="text-6xl text-black">Our Membership</h2>
             <Divider className="w-[120px] mx-auto" />
             <Text className="py-20">
@@ -100,15 +100,15 @@ const LearnMorePage = () => {
               $12,000 annual spend on Don Marrón garments) and a personalized
               styling consultation with a look book made just for you.
             </Text>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div>
-                <Image src={books} alt="books" />
+                <Image src={books} alt="books" className="w-full" />
               </div>
               <div>
-                <Image src={sofa} alt="sofa" />
+                <Image src={sofa} alt="sofa" className="w-full" />
               </div>
               <div>
-                <Image src={portrait} alt="portrait" />
+                <Image src={portrait} alt="portrait" className="w-full" />
               </div>
             </div>
             <Text className="py-20">
@@ -124,11 +124,11 @@ const LearnMorePage = () => {
           <h3 className="text-4xl text-white uppercase">Member Benefits</h3>
           <Divider className="w-[120px] mx-auto bg-white" />
           <div className="max-w-[1240px] mx-auto flex flex-wrap gap-y-20 py-20">
-            {benefits.map(({ icon, desc }) => {
+            {benefits.map(({ icon, desc }, index) => {
               return (
                 <div
-                  key={desc}
-                  className="w-1/4 flex flex-col justify-between items-center"
+                  key={index}
+                  className={`w-1/2 md:w-1/4 flex flex-col justify-between items-center`}
                 >
                   <Image src={icon} alt="desc" />
                   <p className="text-white text-lg w-[80%]">{desc}</p>
@@ -138,7 +138,7 @@ const LearnMorePage = () => {
           </div>
         </section>
 
-        <section className="max-w-[1240px] mx-auto py-20 text-center">
+        <section className="max-w-[1240px] mx-auto py-20 text-center px-4 md:px-0">
           <h3 className="text-4xl text-black uppercase font-bold tracking-widest">
             Ready to Apply?
           </h3>

@@ -119,13 +119,13 @@ export default function Page() {
   return (
     <>
       <Header noLinks={true} />
-      <div className="pt-[150px] max-w-[1240px] mx-auto pb-[80px]">
+      <div className="pt-[150px] max-w-[1240px] mx-auto pb-[80px] px-4 md:px-0">
         <div>
-          <h2 className="text-[40px]">Members Sign Up</h2>
+          <h2 className="text-[40px] md:text-[40px]">Members Sign Up</h2>
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-between gap-x-10">
-              <div className="flex flex-col flex-1 gap-y-5 w-6/12">
-                <div className="divider w-[120px]"></div>
+            <div className="flex flex-col md:flex-row justify-between gap-x-10">
+              <div className="flex flex-col gap-y-5 w-full md:w-6/12">
+                <div className="divider w-full md:w-[120px]"></div>
                 <div className="flex justify-center gap-x-3">
                   <div className="flex-1">
                     <Label htmlFor="first-name">First Name</Label>
@@ -247,7 +247,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="h-[853px] w-[556px]">
+              <div className="h-[853px] w-[556px] hidden md:block">
                 <Image src={signup} alt="sign up" className="h-[853px]" />
               </div>
             </div>
@@ -255,8 +255,8 @@ export default function Page() {
             <Divider className="my-[50px]" />
 
             <div className="flex flex-col gap-y-10 pb-[60px]">
-              <div className="flex">
-                <Label htmlFor="reason" className="text-lg w-[30%]">
+              <div className="flex flex-col md:flex-row">
+                <Label htmlFor="reason" className="text-lg w-full md:w-[30%]">
                   Why do you believe you would be a valuable addition to the Don
                   Marrón Community?
                 </Label>
@@ -269,8 +269,8 @@ export default function Page() {
                   required
                 />
               </div>
-              <div className="flex">
-                <Label htmlFor="fashionStyle" className="text-lg w-[30%]">
+              <div className="flex flex-col md:flex-row">
+                <Label htmlFor="fashionStyle" className="text-lg w-full md:w-[30%]">
                   How would you define your fashion style?
                 </Label>
                 <TextArea
@@ -282,8 +282,8 @@ export default function Page() {
                   required
                 />
               </div>
-              <div className="flex">
-                <Label htmlFor="lifestyle" className="text-lg w-[30%]">
+              <div className="flex flex-col md:flex-row">
+                <Label htmlFor="lifestyle" className="text-lg w-full md:w-[30%]">
                   How would you define your lifestyle?
                 </Label>
                 <TextArea
@@ -298,7 +298,7 @@ export default function Page() {
             </div>
 
             <div className="text-center">
-              <Button className="w-[150px]" type="submit" disabled={isDisabled}>
+              <Button className="w-full md:w-[150px]" type="submit" disabled={isDisabled}>
                 SUBMIT
               </Button>
             </div>

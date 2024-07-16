@@ -31,33 +31,36 @@ export default function Slider({ slides }: SliderProps) {
 
   return (
     <div
-      className={`bg-${backgroundColor} py-20 text-white flex justify-between`}
+      className={`bg-${backgroundColor} py-20 text-white flex justify-between flex-row`}
     >
       <Image
         src={arrowLeft}
         alt="arrow left"
-        className="mx-10 cursor-pointer"
+        className="mx-3 md:mx-10 cursor-pointer"
         onClick={handlePrev}
       />
-      <div className="flex flex-col items-center justify-center w-1/2 pr-6">
+      <div className="flex flex-col md:flex-row">
+
+      <div className="flex flex-col items-center justify-center w-full pr-6 md:w-1/2">
         <div className="flex flex-col justify-between h-full">
           <p className="uppercase tracking-[0.15em]">Latest Update</p>
           <div className="flex flex-col gap-[45px]">
             <span className="text-5xl">{title}</span>
             <p className="text-xl leading-9">{description}</p>
-            <Button className="uppercase text-white border border-white w-[225px]">
+            <Button className="uppercase text-white border border-white w-full md:w-[225px]">
               Find Out More
             </Button>
           </div>
         </div>
       </div>
-      <div>
+      <div className="mt-10 md:mt-0">
         <Image src={image} alt="desk" />
+      </div>
       </div>
       <Image
         src={arrowRight}
         alt="arrow right"
-        className="mx-10 cursor-pointer"
+        className="mx-3 md:mx-10 cursor-pointer"
         onClick={handleNext}
       />
     </div>
