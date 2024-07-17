@@ -270,7 +270,10 @@ export default function Page() {
                 />
               </div>
               <div className="flex flex-col md:flex-row">
-                <Label htmlFor="fashionStyle" className="text-lg w-full md:w-[30%]">
+                <Label
+                  htmlFor="fashionStyle"
+                  className="text-lg w-full md:w-[30%]"
+                >
                   How would you define your fashion style?
                 </Label>
                 <TextArea
@@ -283,7 +286,10 @@ export default function Page() {
                 />
               </div>
               <div className="flex flex-col md:flex-row">
-                <Label htmlFor="lifestyle" className="text-lg w-full md:w-[30%]">
+                <Label
+                  htmlFor="lifestyle"
+                  className="text-lg w-full md:w-[30%]"
+                >
                   How would you define your lifestyle?
                 </Label>
                 <TextArea
@@ -298,7 +304,11 @@ export default function Page() {
             </div>
 
             <div className="text-center">
-              <Button className="w-full md:w-[150px]" type="submit" disabled={isDisabled}>
+              <Button
+                className="w-full md:w-[150px]"
+                type="submit"
+                disabled={isDisabled}
+              >
                 SUBMIT
               </Button>
             </div>

@@ -34,7 +34,11 @@ const LearnMorePage = () => {
       <Header />
       <main className="text-black">
         <section>
-          <Image src={hero} alt="hero image" className="h-[200px] md:h-auto w-full" />
+          <Image
+            src={hero}
+            alt="hero image"
+            className="h-[200px] md:h-auto w-full"
+          />
           <p className="w-full text-gray uppercase text-xl md:text-2xl tracking-widest py-10 text-center">
             Find Out More About
           </p>
@@ -90,7 +94,10 @@ const LearnMorePage = () => {
             </Link>
           </section>
 
-          <section id="membership" className="text-center pb-[200px] px-4 md:px-0">
+          <section
+            id="membership"
+            className="text-center pb-[200px] px-4 md:px-0"
+          >
             <h2 className="text-6xl text-black">Our Membership</h2>
             <Divider className="w-[120px] mx-auto" />
             <Text className="py-20">

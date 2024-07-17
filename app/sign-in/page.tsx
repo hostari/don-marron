@@ -80,7 +80,11 @@ export default function Page() {
               <Label className="text-white">PASSWORD</Label>
             </p>
 
-            <Button className="w-full md:w-[145px]" type="submit" disabled={isDisabled}>
+            <Button
+              className="w-full md:w-[145px]"
+              type="submit"
+              disabled={isDisabled}
+            >
               SIGN IN
             </Button>
           </form>

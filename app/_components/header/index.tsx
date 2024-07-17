@@ -33,10 +33,10 @@ const Header = ({
     >
       <div className="flex items-center">
         <Link href="/">
-            <Image
-              alt="logo"
-              src={useWhiteLogo ? whiteLogo : rusticLogo}
-              className="w-[45px] text-[#212427]"
+          <Image
+            alt="logo"
+            src={useWhiteLogo ? whiteLogo : rusticLogo}
+            className="w-[45px] text-[#212427]"
           />
         </Link>
       </div>
@@ -48,7 +48,9 @@ const Header = ({
       )}
 
       {!isAuthenticated && !noLinks && (
-        <div className={`absolute right-10 flex gap-4 ${useWhiteLogo ? "text-white" : "text-[#212427]"}`}>
+        <div
+          className={`absolute right-10 flex gap-4 ${useWhiteLogo ? "text-white" : "text-[#212427]"}`}
+        >
           <Link href="/sign-in">SIGN IN</Link>
           <Link href="/sign-up">MEMBERSHIP</Link>
         </div>

@@ -72,7 +72,6 @@ export default async function MemberPage() {
                 maxHeight: "500px",
                 minHeight: "200px",
               }}
-              target="_blank"
             >
               <div className="absolute inset-0 flex items-center justify-between flex-col py-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
                 <div className="w-[40px] h-[40px]">
