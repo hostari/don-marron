@@ -27,7 +27,7 @@ export default function LandingPage() {
         <Image src={logo} alt="logo" className="w-full" />
         <div className="w-full h-[500px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-[#BDBDBD80] text-4xl font-serif uppercase pt-[11rem]">
+            <h1 className="text-[#BDBDBD80] text-4xl font-serif uppercase pt-[11rem] px-0 md:px-4">
               Welcome to the world <br /> of don marrón
             </h1>
             <Divider className="bg-[#BDBDBD80] w-[170px]" />
