@@ -46,8 +46,8 @@ export default function LandingPage() {
             </Link>
           </Button>
         </div>
-        <div className="absolute bottom-[100px] left-[50px] p-4">
-          <Link href="/learn-more" className="text-white uppercase text-xl">
+        <div className="absolute bottom-[60px] md:bottom-[100px] left-[15px] md:left-[50px] p-4">
+          <Link href="/learn-more" className="text-white uppercase text-base md:text-xl">
             Learn More
           </Link>
         </div>

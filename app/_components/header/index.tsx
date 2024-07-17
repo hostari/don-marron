@@ -29,7 +29,7 @@ const Header = ({
 
   return (
     <div
-      className={`w-full flex justify-center items-center py-5 px-10 ${className}`}
+      className={`w-full flex justify-between md:justify-center items-center py-5 px-10 ${className}`}
     >
       <div className="flex items-center">
         <Link href="/">
