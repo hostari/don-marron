@@ -10,7 +10,14 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <>
-      <video autoPlay muted loop id="myVideo">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        id="myVideo"
+        className="w-full md:w-auto"
+      >
         <source
           src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4"
           type="video/mp4"
@@ -47,7 +54,10 @@ export default function LandingPage() {
           </Button>
         </div>
         <div className="absolute bottom-[60px] md:bottom-[100px] left-[15px] md:left-[50px] p-4">
-          <Link href="/learn-more" className="text-white uppercase text-base md:text-xl">
+          <Link
+            href="/learn-more"
+            className="text-white uppercase text-base md:text-xl"
+          >
             Learn More
           </Link>
         </div>

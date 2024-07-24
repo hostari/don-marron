@@ -2,9 +2,8 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import apiClient from "@/libs/api";
-import config from "@/config";
 import { createBrowserClient } from "@/libs/supabase/browser";
+import { stripe } from "@/libs/stripe";
 
 export default function PaymentsPage() {
   const router = useRouter();
@@ -22,17 +21,24 @@ export default function PaymentsPage() {
         return;
       }
 
-      const { url }: { url: string } = await apiClient.post(
-        "/stripe/create-checkout",
-        {
-          priceId: config.stripe.plans[0].priceId,
-          successUrl: `${process.env.NEXT_PUBLIC_APP_URL}/member`,
-          cancelUrl: `${process.env.NEXT_PUBLIC_APP_URL}/member`,
-          mode: "payment",
-        },
+      const { data: member } = await supabase
+        .from("Members")
+        .select("*")
+        .eq("id", user.id)
+        .single()
+        .throwOnError();
+
+      const invoices = await stripe.invoices.list({
+        customer: member.customerId,
+      });
+      const openInvoice = invoices.data.find(
+        (invoice) => invoice.status === "open",
       );
 
-      router.push(url);
+      if (!openInvoice) {
+        throw new Error("No open invoice found");
+      }
+      router.push(openInvoice.hosted_invoice_url);
     };
 
     initiatePayment();

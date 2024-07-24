@@ -6,7 +6,7 @@ import { findCheckoutSession } from "@/libs/stripe";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/lib/types/database";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY, {
   apiVersion: "2023-08-16",
   typescript: true,
 });

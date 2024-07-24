@@ -5,11 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Divider } from "@/components/ui/divider";
 import { MemberApplication } from "@/lib/types/models";
-import config from "@/config";
-import { useRouter } from "next/navigation";
+import { stripe } from "@/libs/stripe";
 
 export default function AdminPage() {
-  const router = useRouter();
   const supabase = createBrowserClient();
   const [selectedApplication, setSelectedApplication] =
     useState<MemberApplication | null>(null);
@@ -47,6 +45,14 @@ export default function AdminPage() {
       const { email, firstName, lastName } = applications.find(
         (app) => app.id === id,
       );
+      const customer = await stripe.customers.create({
+        email,
+        name: `${firstName} ${lastName}`,
+      });
+      if (!customer) {
+        throw new Error("Error creating Stripe customer");
+      }
+
       console.log({ email });
 
       if (status === "approved") {
@@ -66,6 +72,7 @@ export default function AdminPage() {
           firstName,
           lastName,
           dateAccepted: new Date().toISOString(),
+          customerId: customer.id,
         });
 
         if (memberError) {
