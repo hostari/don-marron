@@ -30,16 +30,16 @@ export default function LandingPage() {
             useWhiteLogo={true}
             isAuthenticated={false}
             noLinks={false}
-            className="pb-[5rem]"
+            className="pb-[5rem] bg-transparent"
           />
         </div>
         <div className="w-full h-[100px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out" />
-        <div className="text-3xl md:text-4xl text-[#BDBDBD80] font-serif uppercase absolute z-50 top-[280px] flex w-[55%] justify-center items-center">
+        <div className="hidden md:flex text-3xl text-4xl text-[#BDBDBD80] animate-fade-in-from-bottom font-serif uppercase absolute z-50 top-[9%] w-[55%] justify-between items-center">
           <span>Exclusive</span>
-          <span>&</span>
+          <span className="absolute left-[50%]">&</span>
           <span>Craftsmanship</span>
         </div>
-        <Image src={logo} alt="logo" className="w-full" />
+        <Image src={logo} alt="logo" className="w-full animate-fade-in" />
         <div className="w-full h-[500px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out relative bottom-[6px]">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-[#BDBDBD80] text-3xl md:text-4xl font-serif uppercase pt-[11rem] px-2">
