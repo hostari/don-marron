@@ -69,7 +69,7 @@ export default function RegisterPage() {
     <>
       <div className="bg-image h-screen mx-0 flex">
         <div className="absolute w-full">
-          <Header noLinks={true} useWhiteLogo={true} />
+          <Header noLinks={true} useWhiteLogo={true} className="bg-transparent" />
         </div>
         <div className="text-white w-6/12 my-auto ml-auto">
           <h2 className="text-[40px]">
