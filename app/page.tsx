@@ -34,7 +34,7 @@ export default function LandingPage() {
           />
         </div>
         <div className="w-full h-[100px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out" />
-        <div className="hidden md:flex text-3xl text-4xl text-[#BDBDBD80] animate-fade-in-from-bottom font-serif uppercase absolute z-50 top-[9%] w-[55%] justify-between items-center">
+        <div className="tracking-wider hidden md:flex text-3xl text-4xl text-[#BDBDBD80] animate-fade-in-from-bottom font-serif uppercase absolute z-50 top-[9%] w-[55%] justify-between items-center">
           <span>Exclusive</span>
           <span className="absolute left-[50%]">&</span>
           <span>Craftsmanship</span>
