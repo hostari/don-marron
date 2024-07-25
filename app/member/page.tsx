@@ -49,12 +49,12 @@ export default async function MemberPage() {
   ];
 
   return (
-    <main className="">
-      <div className="pb-30 text-center">
-        <p className="text-2xl tracking-[0.15em] py-10 uppercase">
+    <main className="bg-[#ececeb]">
+      <div className="pb-10 text-center">
+        <p className="text-2xl tracking-[0.15em] py-5 uppercase">
           Members Lounge
         </p>
-        <h1 className="text-6xl">
+        <h1 className="text-6xl font-serif">
           Welcome{memberData?.firstName ? `, ${memberData.firstName}!` : null}
         </h1>
         <Divider className="w-[120px] mx-auto" />

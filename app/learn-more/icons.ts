@@ -13,18 +13,6 @@ export const benefits = [
     desc: "Eight (8) custom-made looks per year, two (2) per season",
   },
   {
-    icon: guarantee,
-    desc: "Extra one-year quality guarantee on all our products",
-  },
-  {
-    icon: lookbook,
-    desc: "A personalized styling consultation with look book",
-  },
-  {
-    icon: payment,
-    desc: "Membership payment options",
-  },
-  {
     icon: events,
     desc: "Exclusive member events, dinners and cocktail hours",
   },
@@ -33,8 +21,20 @@ export const benefits = [
     desc: "Unparalleled service and attention",
   },
   {
+    icon: lookbook,
+    desc: "A personalized styling consultation with look book",
+  },
+  {
     icon: travel,
     desc: "Personalized travel experience",
+  },
+  {
+    icon: payment,
+    desc: "Membership payment options",
+  },
+  {
+    icon: guarantee,
+    desc: "Extra one-year quality guarantee on all our products",
   },
   {
     icon: fabrics,

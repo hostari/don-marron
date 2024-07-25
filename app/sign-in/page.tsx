@@ -51,10 +51,16 @@ export default function Page() {
     <>
       <div className="bg-image h-screen mx-0 flex flex-col md:flex-row">
         <div className="absolute w-full">
-          <Header noLinks={true} useWhiteLogo={true} />
+          <Header
+            noLinks={true}
+            useWhiteLogo={true}
+            className="bg-transparent"
+          />
         </div>
         <div className="text-white w-full md:w-6/12 my-auto ml-auto p-4 md:p-0">
-          <h2 className="text-[30px] md:text-[40px]">Members Sign In</h2>
+          <h2 className="text-[30px] md:text-[40px] font-serif">
+            Members Sign In
+          </h2>
           <Divider className="bg-white w-[100px]" />
 
           <form className="flex flex-col gap-y-4" onSubmit={handleLogin}>

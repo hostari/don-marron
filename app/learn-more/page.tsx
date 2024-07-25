@@ -31,8 +31,12 @@ const Text = ({
 const LearnMorePage = () => {
   return (
     <>
-      <Header />
-      <main className="text-black">
+      <Header
+        className="bg-[#ececeb]"
+        noLinks={false}
+        isAuthenticated={false}
+      />
+      <main className="text-black bg-[#ececeb]">
         <section>
           <Image
             src={hero}
@@ -137,7 +141,12 @@ const LearnMorePage = () => {
                   key={index}
                   className={`w-1/2 md:w-1/4 flex flex-col justify-between items-center`}
                 >
-                  <Image src={icon} alt="desc" />
+                  <Image
+                    src={icon}
+                    alt="desc"
+                    width={100}
+                    className="h-[100px]"
+                  />
                   <p className="text-white text-lg w-[80%]">{desc}</p>
                 </div>
               );

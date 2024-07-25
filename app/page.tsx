@@ -25,14 +25,22 @@ export default function LandingPage() {
       </video>
 
       <div className="hero">
-        <Header
-          useWhiteLogo={true}
-          isAuthenticated={false}
-          noLinks={false}
-          className="bg-[#3f2212] pb-[5rem]"
-        />
+        <div className="top-0 z-50 w-full fixed">
+          <Header
+            useWhiteLogo={true}
+            isAuthenticated={false}
+            noLinks={false}
+            className="pb-[5rem]"
+          />
+        </div>
+        <div className="w-full h-[100px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out" />
+        <div className="text-3xl md:text-4xl text-[#BDBDBD80] font-serif uppercase absolute z-50 top-[280px] flex w-[55%] justify-center items-center">
+          <span>Exclusive</span>
+          <span>&</span>
+          <span>Craftsmanship</span>
+        </div>
         <Image src={logo} alt="logo" className="w-full" />
-        <div className="w-full h-[500px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out">
+        <div className="w-full h-[500px] bg-[#3f2212] opacity-0 animate-fade-in transition-opacity duration-300 ease-in-out relative bottom-[6px]">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-[#BDBDBD80] text-3xl md:text-4xl font-serif uppercase pt-[11rem] px-2">
               Welcome to the world <br /> of don marrón
@@ -53,7 +61,7 @@ export default function LandingPage() {
             </Link>
           </Button>
         </div>
-        <div className="absolute bottom-[60px] md:bottom-[100px] left-[15px] md:left-[50px] p-4">
+        <div className="absolute bottom-[60px] md:bottom-[40px] left-[15px] md:left-[50px] p-4">
           <Link
             href="/learn-more"
             className="text-white uppercase text-base md:text-xl"

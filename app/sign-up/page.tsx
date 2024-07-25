@@ -10,7 +10,6 @@ import { createBrowserClient } from "@/libs/supabase/browser";
 import signup from "@/public/signup.png";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
-import { sendEmail } from "@/libs/resend";
 import apiClient from "@/libs/api";
 
 export default function Page() {
