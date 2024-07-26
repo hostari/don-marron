@@ -117,7 +117,7 @@ export default function Page() {
 
   return (
     <>
-      <Header noLinks={true} />
+      <Header noLinks={true} className="bg-transparent" />
       <div className="pt-[150px] max-w-[1240px] mx-auto pb-[80px] px-4 md:px-0">
         <div>
           <h2 className="text-[40px] md:text-[40px]">Members Sign Up</h2>

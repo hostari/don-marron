@@ -112,13 +112,13 @@ const LearnMorePage = () => {
               styling consultation with a look book made just for you.
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
-              <div>
+              <div className="w-1/3">
                 <Image src={books} alt="books" className="w-full" />
               </div>
-              <div>
+              <div className="w-1/3">
                 <Image src={sofa} alt="sofa" className="w-full" />
               </div>
-              <div>
+              <div className="w-1/3">
                 <Image src={portrait} alt="portrait" className="w-full" />
               </div>
             </div>
