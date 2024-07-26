@@ -11,12 +11,13 @@ export default function LandingPage() {
   return (
     <>
       <video
+        playsInline
         autoPlay
         muted
         loop
-        playsInline
         id="myVideo"
         className="w-full md:w-auto"
+        preload="auto"
       >
         <source
           src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4"

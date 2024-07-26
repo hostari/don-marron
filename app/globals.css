@@ -31,13 +31,6 @@ a:hover {
   background-color: #422916;
 }
 
-video {
-  clip-path: url(#overlay);
-  -webkit-clip-path: url(#overlay);
-  width: 100%;
-  z-index: 1;
-}
-
 #myVideo {
   object-fit: cover;
   width: 100vw;
@@ -58,29 +51,3 @@ video {
   flex-direction: column;
   width: 100%;
 }
-
-/* main#article-content .markdown p {
-  @apply pb-2;
-}
-
-main#article-content .markdown h2 {
-  @apply text-2xl py-5 font-bold
-}
-
-main#article-content .markdown h1 {
-  @apply text-3xl py-5 font-bold
-}
-
-main#article-content .markdown ul {
-  padding-left: 40px;
-  list-style: initial;
-}
-
-a {
-  color: #6F3CDC;
-}
-
-
-h1, h2, h3, h4, h5 {
-  @apply font-serif;
-} */
