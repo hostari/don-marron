@@ -37,11 +37,11 @@ const LearnMorePage = () => {
         isAuthenticated={false}
       />
       <main className="text-black bg-[#ececeb]">
-        <section>
+        <section className="h-screen">
           <Image
             src={hero}
             alt="hero image"
-            className="h-[200px] md:h-auto w-full"
+            className="h-[200px] md:h-[60vh] w-full"
           />
           <p className="w-full text-gray uppercase text-xl md:text-2xl tracking-widest py-10 text-center">
             Find Out More About
