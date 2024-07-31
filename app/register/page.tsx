@@ -10,12 +10,17 @@ import "../sign-in/sign-in.css";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
-export default function RegisterPage() {
+export default function RegisterPage({
+  resetPassword,
+}: {
+  resetPassword: boolean;
+}) {
   const router = useRouter();
 
   const supabase = createBrowserClient();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
@@ -39,6 +44,11 @@ export default function RegisterPage() {
   const handelCreateAccount = async (e: any) => {
     e?.preventDefault();
 
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
     setIsLoading(true);
     setIsDisabled(true);
 
@@ -47,13 +57,21 @@ export default function RegisterPage() {
         password,
       });
 
+      await supabase
+        .from("Members")
+        .update({
+          status: "active",
+        })
+        .eq("id", data?.user?.id)
+        .throwOnError();
+
       console.log({ data, error });
 
       if (error) {
         throw error;
       }
 
-      toast.success("Registered!");
+      toast.success(`${resetPassword ? "Password reset" : "Registered!"}`);
 
       router.push("/member");
     } catch (error) {
@@ -77,7 +95,8 @@ export default function RegisterPage() {
         </div>
         <div className="text-white w-6/12 my-auto ml-auto">
           <h2 className="text-[40px]">
-            Create Account {email ? `- Set password for ${email}` : null}
+            {resetPassword ? "Reset Password" : "Create Account"}{" "}
+            {email ? `- Set password for ${email}` : null}
           </h2>
           <Divider className="bg-white w-[100px]" />
 
@@ -93,11 +112,21 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Label className="text-white">PASSWORD</Label>
+              <Label className="text-white">Password</Label>
+            </p>
+            <p>
+              <input
+                placeholder=""
+                className="border-b border-white"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <Label className="text-white">Confirm Password</Label>
             </p>
 
             <Button className="w-[200px]" type="submit" disabled={isDisabled}>
-              CREATE ACCOUNT
+              {resetPassword ? "Reset Password" : "Create Account"}
             </Button>
           </form>
         </div>

@@ -59,6 +59,10 @@ export default function AdminPage() {
         const { data: userData, error: signUpError } =
           await supabase.auth.admin.inviteUserByEmail(email, {
             redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/register`,
+            data: {
+              firstName,
+              lastName,
+            },
           });
 
         if (signUpError) {
@@ -99,7 +103,7 @@ export default function AdminPage() {
       ) : (
         <div className="space-y-5">
           <div className="flex">
-            <div className="w-1/3">
+            <div className="w-1/3 overflow-scroll">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
@@ -119,7 +123,7 @@ export default function AdminPage() {
                     <tr
                       key={app.id}
                       onClick={() => setSelectedApplication(app)}
-                      className="cursor-pointer"
+                      className={`cursor-pointer ${selectedApplication?.id === app.id ? "bg-[tomato]" : ""}`}
                     >
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {app.firstName}
@@ -136,7 +140,7 @@ export default function AdminPage() {
               </table>
             </div>
             {selectedApplication && (
-              <div className="w-2/3 p-5 border rounded">
+              <div className="w-2/3 ml-16 p-5 border rounded">
                 <p>
                   <Label>First Name:</Label> {selectedApplication.firstName}
                 </p>
@@ -153,13 +157,15 @@ export default function AdminPage() {
                   <Label>Address:</Label> {selectedApplication.address}
                 </p>
                 <p>
-                  <Label>Birth Date:</Label> {selectedApplication.birthDate}
+                  <Label>Birth Date:</Label>{" "}
+                  {new Date(selectedApplication.birthDate).toLocaleDateString()}
                 </p>
                 <p>
                   <Label>Company Name:</Label> {selectedApplication.companyName}
                 </p>
                 <p>
-                  <Label>Created At:</Label> {selectedApplication.createdAt}
+                  <Label>Created At:</Label>{" "}
+                  {new Date(selectedApplication.createdAt).toLocaleString()}
                 </p>
                 <p>
                   <Label>Fashion Style:</Label>{" "}

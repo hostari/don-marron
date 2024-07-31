@@ -4,15 +4,12 @@ import { createBrowserClient } from "@/libs/supabase/browser";
 import { Label } from "@/components/ui/label";
 import { Divider } from "@/components/ui/divider";
 import { User } from "@/lib/types/models";
-import config from "@/config";
-import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 
 type Member = User;
 
 export default function AdminPage() {
-  const router = useRouter();
   const supabase = createBrowserClient();
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const [members, setMembers] = useState<Member[]>([]);
@@ -103,6 +100,19 @@ export default function AdminPage() {
     localStorage.setItem("selectedMemberId", member.id);
   };
 
+  const sendResetPasswordEmail = async (email: string) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/reset-password`,
+    });
+
+    if (error) {
+      toast.error(`Error sending reset password email: ${error.message}`);
+      return console.error("Error sending reset password email:", error);
+    }
+
+    toast.success(`Reset password email sent to ${email}`);
+  };
+
   return (
     <div className="pt-[150px] max-w-[1240px] mx-auto pb-[80px]">
       <h2 className="text-[40px]">Admin - Members</h2>
@@ -112,7 +122,7 @@ export default function AdminPage() {
       ) : (
         <div className="space-y-5">
           <div className="flex">
-            <div className="w-1/3">
+            <div className="w-1/3 overflow-scroll">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
@@ -132,7 +142,7 @@ export default function AdminPage() {
                     <tr
                       key={member.id}
                       onClick={() => handleMemberSelection(member)}
-                      className="cursor-pointer"
+                      className={`cursor-pointer ${selectedMember?.id === member.id ? "bg-[tomato]" : ""}`}
                     >
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {member.firstName}
@@ -149,7 +159,7 @@ export default function AdminPage() {
               </table>
             </div>
             {selectedMember && (
-              <div className="w-2/3 p-5 border rounded">
+              <div className="w-2/3 p-5 ml-16 border rounded">
                 <p>
                   <Label>First Name:</Label> {selectedMember.firstName}
                 </p>
@@ -205,6 +215,19 @@ export default function AdminPage() {
                       accept="application/pdf"
                       onChange={(e) => handleFileUpload(e, "contract")}
                     />
+                  </div>
+                  <div>
+                    <p>Status: {selectedMember.status}</p>
+
+                    <Button
+                      variant="outline"
+                      onClick={() =>
+                        sendResetPasswordEmail(selectedMember.email)
+                      }
+                      className="text-blue-500 underline"
+                    >
+                      Send Reset Password Email
+                    </Button>
                   </div>
                 </div>
               </div>

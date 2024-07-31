@@ -6,45 +6,46 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@/libs/supabase/browser";
-import "./sign-in.css";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
-import Link from "next/link";
+import "../sign-in/sign-in.css";
 
-export default function Page() {
+export default function ResetPasswordRequestPage() {
   const router = useRouter();
-
   const supabase = createBrowserClient();
   const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
-  const handleLogin = async (e: any) => {
+  const handleResetPassword = async (e: any) => {
     e?.preventDefault();
 
     setIsLoading(true);
-    setIsDisabled(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const { data: user } = await supabase
+        .from("Members")
+        .select("email")
+        .eq("email", email)
+        .single();
+
+      if (!user) {
+        return toast.error("There's no associated member with this email");
+      }
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email);
 
       if (error) {
         throw error;
       }
 
-      toast.success("Signing in!");
+      toast.success("Password reset email sent!");
 
-      router.push("/member");
+      router.push("/sign-in");
     } catch (error) {
-      toast.error("Invalid email or password");
+      toast.error("Error sending password reset email");
       console.log(error);
     } finally {
       setIsLoading(false);
-      setIsDisabled(false);
     }
   };
 
@@ -60,15 +61,18 @@ export default function Page() {
         </div>
         <div className="text-white w-full md:w-6/12 my-auto ml-auto p-4 md:p-0">
           <h2 className="text-[30px] md:text-[40px] font-serif">
-            Members Sign In
+            Reset Password
           </h2>
           <Divider className="bg-white w-[100px]" />
 
-          <form className="flex flex-col gap-y-4" onSubmit={handleLogin}>
+          <form
+            className="flex flex-col gap-y-4"
+            onSubmit={handleResetPassword}
+          >
             <p>
               <input
                 placeholder=""
-                className="border-b border-white"
+                className="border-b border-white w-[300px]"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -76,30 +80,13 @@ export default function Page() {
               <Label className="text-white">EMAIL ADDRESS</Label>
             </p>
 
-            <p>
-              <input
-                placeholder=""
-                className="border-b border-white"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <Label className="text-white">PASSWORD</Label>
-            </p>
-
             <Button
               className="w-full md:w-[145px]"
               type="submit"
-              disabled={isDisabled}
+              disabled={isLoading}
             >
-              SIGN IN
+              SEND
             </Button>
-            <Link
-              href="/reset-password-request"
-              className="text-white/50 text-xs"
-            >
-              Forgot your password?
-            </Link>
           </form>
         </div>
       </div>

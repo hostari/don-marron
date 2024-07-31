@@ -70,7 +70,9 @@ const LearnMorePage = () => {
 
         <div className="max-w-[1240px] mx-auto pt-[100px] md:pt-[180px]">
           <section id="brand" className="text-center pb-[200px] px-4 md:px-0">
-            <h2 className="text-5xl md:text-6xl text-black font-serif">Our Brand</h2>
+            <h2 className="text-5xl md:text-6xl text-black font-serif">
+              Our Brand
+            </h2>
             <Divider className="w-[120px] mx-auto" />
             <Text>
               Don Marrón dresses you in the right attire and opens the right
@@ -102,7 +104,9 @@ const LearnMorePage = () => {
             id="membership"
             className="text-center pb-[200px] px-4 md:px-0"
           >
-            <h2 className="text-5xl md:text-6xl text-black font-serif">Our Membership</h2>
+            <h2 className="text-5xl md:text-6xl text-black font-serif">
+              Our Membership
+            </h2>
             <Divider className="w-[120px] mx-auto" />
             <Text className="py-20">
               Customization is our specialty, and our members are the masters of
@@ -132,7 +136,9 @@ const LearnMorePage = () => {
         </div>
 
         <section className="bg-[#212427] py-20 text-center">
-          <h3 className="text-4xl text-white uppercase font-serif">Member Benefits</h3>
+          <h3 className="text-4xl text-white uppercase font-serif">
+            Member Benefits
+          </h3>
           <Divider className="w-[120px] mx-auto bg-white" />
           <div className="max-w-[1240px] mx-auto flex flex-wrap gap-y-20 py-20">
             {benefits.map(({ icon, desc }, index) => {

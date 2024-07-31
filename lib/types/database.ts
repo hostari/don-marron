@@ -76,6 +76,7 @@ export type Database = {
           lastName: string | null;
           priceId: string | null;
           role: Database["public"]["Enums"]["ProfileRoles"];
+          status: Database["public"]["Enums"]["MemberStatus"] | null;
         };
         Insert: {
           created_at?: string;
@@ -89,6 +90,7 @@ export type Database = {
           lastName?: string | null;
           priceId?: string | null;
           role?: Database["public"]["Enums"]["ProfileRoles"];
+          status?: Database["public"]["Enums"]["MemberStatus"] | null;
         };
         Update: {
           created_at?: string;
@@ -102,6 +104,7 @@ export type Database = {
           lastName?: string | null;
           priceId?: string | null;
           role?: Database["public"]["Enums"]["ProfileRoles"];
+          status?: Database["public"]["Enums"]["MemberStatus"] | null;
         };
         Relationships: [];
       };
@@ -114,6 +117,7 @@ export type Database = {
     };
     Enums: {
       ApplicationStatus: "pending" | "approved" | "rejected";
+      MemberStatus: "waiting_for_activation" | "active" | "inactive";
       ProfileRoles: "member" | "admin";
     };
     CompositeTypes: {
