@@ -10,11 +10,7 @@ import "../sign-in/sign-in.css";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
-interface RegisterPageProps {
-  resetPassword: boolean;
-}
-
-export default function RegisterPage({ resetPassword }: RegisterPageProps) {
+export default function RegisterPage() {
   const router = useRouter();
 
   const supabase = createBrowserClient();
@@ -23,6 +19,11 @@ export default function RegisterPage({ resetPassword }: RegisterPageProps) {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [resetPassword, setResetPassword] = useState<boolean>(false);
+
+  useEffect(() => {
+    setResetPassword(window.location.pathname.includes("reset-password"));
+  }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
