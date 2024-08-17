@@ -10,11 +10,11 @@ import "../sign-in/sign-in.css";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
-export default function RegisterPage({
-  resetPassword,
-}: {
+interface RegisterPageProps {
   resetPassword: boolean;
-}) {
+}
+
+export default function RegisterPage({ resetPassword }: RegisterPageProps) {
   const router = useRouter();
 
   const supabase = createBrowserClient();
