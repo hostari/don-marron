@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import arrowLeft from "@/public/arrow-left.svg";
 import arrowRight from "@/public/arrow-right.svg";
+import Link from "next/link";
 
 interface Slide {
   title: string;
   description: string;
   backgroundColor: string;
   image: StaticImageData;
+  buttonLink: string;
 }
 
 interface SliderProps {
@@ -27,11 +29,14 @@ export default function Slider({ slides }: SliderProps) {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  const { title, description, backgroundColor, image } = slides[currentSlide];
+  const { title, description, backgroundColor, image, buttonLink } = slides[currentSlide];
 
   return (
     <div
       className={`bg-${backgroundColor} py-20 text-white flex justify-between flex-row`}
+      style={{
+        backgroundColor,
+      }}
     >
       <Image
         src={arrowLeft}
@@ -46,9 +51,11 @@ export default function Slider({ slides }: SliderProps) {
             <div className="flex flex-col gap-[45px]">
               <span className="text-5xl">{title}</span>
               <p className="text-xl leading-9">{description}</p>
-              <Button className="uppercase text-white border border-white w-full md:w-[225px]">
-                Find Out More
-              </Button>
+              <Link href={buttonLink}>
+                <Button className="uppercase text-white border border-white w-full md:w-[225px]">
+                  Find Out More
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

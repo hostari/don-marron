@@ -9,6 +9,33 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      LearnMoreContent: {
+        Row: {
+          content: string | null;
+          createdAt: string;
+          id: string;
+          imageUrl: string | null;
+          section: string;
+          title: string | null;
+        };
+        Insert: {
+          content?: string | null;
+          createdAt?: string;
+          id?: string;
+          imageUrl?: string | null;
+          section: string;
+          title?: string | null;
+        };
+        Update: {
+          content?: string | null;
+          createdAt?: string;
+          id?: string;
+          imageUrl?: string | null;
+          section?: string;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
       MemberApplication: {
         Row: {
           address: string | null;
@@ -60,6 +87,33 @@ export type Database = {
           status?: Database["public"]["Enums"]["ApplicationStatus"];
           title?: string | null;
           workEmail?: string | null;
+        };
+        Relationships: [];
+      };
+      MemberPageCarousel: {
+        Row: {
+          backgroundColor: string | null;
+          buttonLink: string | null;
+          createdAt: string;
+          description: string | null;
+          id: number;
+          title: string | null;
+        };
+        Insert: {
+          backgroundColor?: string | null;
+          buttonLink?: string | null;
+          createdAt?: string;
+          description?: string | null;
+          id?: number;
+          title?: string | null;
+        };
+        Update: {
+          backgroundColor?: string | null;
+          buttonLink?: string | null;
+          createdAt?: string;
+          description?: string | null;
+          id?: number;
+          title?: string | null;
         };
         Relationships: [];
       };

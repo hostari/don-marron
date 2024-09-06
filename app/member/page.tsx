@@ -24,29 +24,26 @@ export default async function MemberPage() {
     .eq("email", userData.user.email)
     .single();
 
-  const slides = [
-    {
-      title: "First Members Meet Up",
-      description:
-        "Join your fellow Don Marrón members for dinner, drinks and a distinguished evening at _____ on ______. The only thing you must worry about is looking good and showing up, and we already took care of the first part.",
-      backgroundColor: "brown",
-      image: desk,
-    },
-    {
-      title: "Upcoming Collection",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      backgroundColor: "black",
-      image: livingRoom,
-    },
-    {
-      title: "Our Monthly Calendar",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      backgroundColor: "orange",
-      image: vase,
-    },
-  ];
+
+  const images = [desk, livingRoom, vase];
+
+  const { data: slidesData, error: slidesError } = await supabase
+    .from("MemberPageCarousel")
+    .select("*");
+
+  if (slidesError) {
+    console.error("Error fetching slides:", slidesError);
+  }
+
+  console.log(slidesData);
+
+  const slides = slidesData.map((slide, index) => ({
+    title: slide.title,
+    description: slide.description,
+    backgroundColor: slide.backgroundColor,
+    buttonLink: slide.buttonLink,
+    image: images[index % images.length],
+  }));
 
   return (
     <main className="bg-[#ececeb]">
@@ -88,7 +85,7 @@ export default async function MemberPage() {
         </div>
       </div>
 
-      <Slider slides={slides} />
+      <Slider slides={slides || []} />
     </main>
   );
 }

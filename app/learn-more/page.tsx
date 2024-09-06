@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { createServerClient } from "@/libs/supabase/server";
+import { cookies } from "next/headers";
+import { Button } from "@/components/ui/button";
+import { Divider } from "@/components/ui/divider";
+import Header from "../_components/header";
+
 import shelf from "@/public/shelf.png";
 import podium from "@/public/podium.png";
 import hero from "@/public/hero.png";
@@ -8,9 +14,6 @@ import sofa from "@/public/sofa.png";
 import portrait from "@/public/portrait.png";
 import books from "@/public/books.png";
 import { benefits } from "./icons";
-import { Button } from "@/components/ui/button";
-import { Divider } from "@/components/ui/divider";
-import Header from "../_components/header";
 
 const Text = ({
   children,
@@ -28,7 +31,17 @@ const Text = ({
   );
 };
 
-const LearnMorePage = () => {
+const LearnMorePage = async () => {
+  const supabase = createServerClient({ cookies });
+  const { data: content, error } = await supabase
+    .from("LearnMoreContent")
+    .select("*");
+
+  if (error) {
+    console.error("Error fetching content:", error);
+    return <div>Error loading content</div>;
+  }
+
   return (
     <>
       <Header
@@ -39,7 +52,9 @@ const LearnMorePage = () => {
       <main className="text-black bg-[#ececeb]">
         <section className="h-auto md:h-screen">
           <Image
-            src={hero}
+            src={
+              content.find((item) => item.section === "hero")?.imageUrl || hero
+            }
             alt="hero image"
             className="h-[200px] md:h-[60vh] w-full"
           />
@@ -71,15 +86,12 @@ const LearnMorePage = () => {
         <div className="max-w-[1240px] mx-auto pt-[100px] md:pt-[180px]">
           <section id="brand" className="text-center pb-[200px] px-4 md:px-0">
             <h2 className="text-5xl md:text-6xl text-black font-serif">
-              Our Brand
+              {content.find((item) => item.section === "brand")?.title ||
+                "Our Brand"}
             </h2>
             <Divider className="w-[120px] mx-auto" />
             <Text>
-              Don Marrón dresses you in the right attire and opens the right
-              doors. Our garments are crafted by skilled Italian artisans and
-              with textiles woven from across different regions of Italy . This
-              gives our members access to unmatched quality and exclusive
-              craftsmanship
+              {content.find((item) => item.section === "brand")?.content || ""}
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div>
@@ -105,15 +117,13 @@ const LearnMorePage = () => {
             className="text-center pb-[200px] px-4 md:px-0"
           >
             <h2 className="text-5xl md:text-6xl text-black font-serif">
-              Our Membership
+              {content.find((item) => item.section === "membership")?.title ||
+                "Our Membership"}
             </h2>
             <Divider className="w-[120px] mx-auto" />
             <Text className="py-20">
-              Customization is our specialty, and our members are the masters of
-              their experience at Don Marrón. Membership is $12,000 per year
-              (plus tax) and includes eight custom-made looks per year (or
-              $12,000 annual spend on Don Marrón garments) and a personalized
-              styling consultation with a look book made just for you.
+              {content.find((item) => item.section === "membership")?.content ||
+                ""}
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="w-full md:w-1/3">
@@ -137,7 +147,8 @@ const LearnMorePage = () => {
 
         <section className="bg-[#212427] py-20 text-center">
           <h3 className="text-4xl text-white uppercase font-serif">
-            Member Benefits
+            {content.find((item) => item.section === "benefits")?.title ||
+              "Member Benefits"}
           </h3>
           <Divider className="w-[120px] mx-auto bg-white" />
           <div className="max-w-[1240px] mx-auto flex flex-wrap gap-y-20 py-20">
@@ -149,7 +160,7 @@ const LearnMorePage = () => {
                 >
                   <Image
                     src={icon}
-                    alt="desc"
+                    alt={desc}
                     width={100}
                     className="h-[100px]"
                   />
