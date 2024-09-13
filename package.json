@@ -21,7 +21,7 @@
     "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.2",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "crisp-sdk-web": "^1.0.22",
