@@ -4,6 +4,7 @@ import Image from "next/image";
 import { createServerClient } from "@/libs/supabase/server";
 import { cookies } from "next/headers";
 import { Button } from "@/components/ui/button";
+import { Text } from "@/components/ui/lp-text";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
@@ -14,27 +15,15 @@ import sofa from "@/public/sofa.png";
 import portrait from "@/public/portrait.png";
 import books from "@/public/books.png";
 import { benefits } from "./icons";
-
-const Text = ({
-  children,
-  className,
-}: {
-  children: string;
-  className?: string;
-}) => {
-  return (
-    <p
-      className={`text-2xl pt-[60px] pb-[95px] w-full md:w-[95%] mx-auto leading-10 ${className}`}
-    >
-      {children}
-    </p>
-  );
-};
+import { FAQ } from "./faq";
 
 const LearnMorePage = async () => {
   const supabase = createServerClient({ cookies });
   const { data: content, error } = await supabase
     .from("LearnMoreContent")
+    .select("*");
+  const { data: faqData } = await supabase
+    .from("FrequentlyAskedQuestions")
     .select("*");
 
   if (error) {
@@ -186,6 +175,8 @@ const LearnMorePage = async () => {
             </Button>
           </Link>
         </section>
+
+        <FAQ faqData={faqData} />
       </main>
     </>
   );

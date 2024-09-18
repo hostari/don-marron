@@ -9,6 +9,27 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      FrequentlyAskedQuestions: {
+        Row: {
+          answer: string | null;
+          createdAt: string;
+          id: number;
+          question: string | null;
+        };
+        Insert: {
+          answer?: string | null;
+          createdAt?: string;
+          id?: number;
+          question?: string | null;
+        };
+        Update: {
+          answer?: string | null;
+          createdAt?: string;
+          id?: number;
+          question?: string | null;
+        };
+        Relationships: [];
+      };
       LearnMoreContent: {
         Row: {
           content: string | null;
