@@ -126,8 +126,8 @@ const LearnMorePage = async () => {
               </div>
             </div>
             <Text className="py-20">
-              We also offer several payment plan options, customization of our
-              collection of Italian fabrics and leathers, exclusive member
+              We also offer several payment plan options, customized looks
+              created from Italian fabrics and Italian leather tanneries, exclusive member
               events, personalized travel experiences and an extra one-year
               guarantee on all our products.
             </Text>
@@ -166,8 +166,7 @@ const LearnMorePage = async () => {
           </h3>
           <Text className="py-20">
             At Don Marrón, we want our members to look and feel their absolute
-            best while living life to the fullest. Let us fuss over you and
-            perfect your look. It’s the crafted luxury you deserve.
+            best while living life to the fullest. It’s the crafted luxury you deserve.
           </Text>
           <Link href="/sign-up">
             <Button className="uppercase w-[300px]">

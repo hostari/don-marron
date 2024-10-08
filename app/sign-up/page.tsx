@@ -18,19 +18,18 @@ export default function Page() {
   const supabase = createBrowserClient();
 
   const [formValue, setFormValue] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
-    birthDate: new Date("2000-02-01").toISOString().split("T")[0],
-    address: "123 Main St, Anytown, USA",
-    companyName: "Example Corp",
-    title: "Software Engineer",
-    workEmail: "john.doe@company.com",
-    instagram: "johndoe_insta",
-    facebook: "johndoe_fb",
-    reason: "Interested in fashion",
-    fashionStyle: "Casual",
-    lifestyle: "Active",
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthDate: new Date().toISOString().split("T")[0],
+    address: "",
+    companyName: "",
+    title: "",
+    workEmail: "",
+    instagram: "",
+    facebook: "",
+    reason: "",
+    fashionStyle: "",
   });
   // const [formValue, setFormValue] = useState({
   //   firstName: "",
@@ -60,7 +59,6 @@ export default function Page() {
     facebook,
     reason,
     fashionStyle,
-    lifestyle,
     birthDate,
   } = formValue;
 
@@ -108,7 +106,6 @@ export default function Page() {
                 <li>Facebook: ${formData.socials.facebook}</li>
                 <li>Reason: ${formData.reason}</li>
                 <li>Fashion Style: ${formData.fashionStyle}</li>
-                <li>Lifestyle: ${formData.lifestyle}</li>
                 <li>Birth Date: ${formData.birthDate}</li>
               </ul>`,
       });
@@ -295,22 +292,6 @@ export default function Page() {
                   id="fashionStyle"
                   name="fashionStyle"
                   value={fashionStyle}
-                  onChange={onChange}
-                  className="flex-1"
-                  required
-                />
-              </div>
-              <div className="flex flex-col md:flex-row">
-                <Label
-                  htmlFor="lifestyle"
-                  className="text-lg w-full md:w-[30%]"
-                >
-                  How would you define your lifestyle?
-                </Label>
-                <TextArea
-                  id="lifestyle"
-                  name="lifestyle"
-                  value={lifestyle}
                   onChange={onChange}
                   className="flex-1"
                   required

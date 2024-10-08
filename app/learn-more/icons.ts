@@ -10,7 +10,7 @@ import wardrobe from "@/public/wardrobe.svg";
 export const benefits = [
   {
     icon: wardrobe,
-    desc: "Eight (8) custom-made looks per year, two (2) per season",
+    desc: "Personalized custom made looks per season",
   },
   {
     icon: events,
