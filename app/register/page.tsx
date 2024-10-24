@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { AuthApiError } from "@supabase/supabase-js";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -58,6 +59,10 @@ export default function RegisterPage() {
         password,
       });
 
+      if (error) {
+        throw error;
+      }
+
       await supabase
         .from("Members")
         .update({
@@ -72,12 +77,15 @@ export default function RegisterPage() {
         throw error;
       }
 
-      toast.success(`${resetPassword ? "Password reset" : "Registered!"}`);
+      toast.success(`${resetPassword ? "Password successfully updated" : "Registered!"}`);
 
       router.push("/member");
     } catch (error) {
-      toast.error("Can't register");
-      console.log(error);
+      if (error instanceof AuthApiError) {
+        toast.error(error.message);
+      } else {
+        toast.error("Can't register");
+      }
     } finally {
       setIsLoading(false);
       setIsDisabled(false);
