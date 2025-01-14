@@ -8,12 +8,12 @@ import { Text } from "@/components/ui/lp-text";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
-import shelf from "@/public/shelf.png";
-import podium from "@/public/podium.png";
-import hero from "@/public/hero.png";
-import sofa from "@/public/sofa.png";
-import portrait from "@/public/portrait.png";
-import books from "@/public/books.png";
+import reflection from "@/public/reflection.jpg";
+import manInSuit from "@/public/man-in-suit.jpg";
+import hero from "@/public/hero.jpg";
+import manYellowShirt from "@/public/man-yellow-shirt.jpg";
+import cliffsideBuilding from "@/public/cliffside-building.jpg";
+import manButtoning from "@/public/man-buttoning.jpg";
 import { benefits } from "./icons";
 import { FAQ } from "./faq";
 
@@ -84,10 +84,10 @@ const LearnMorePage = async () => {
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div>
-                <Image src={podium} alt="podium" />
+                <Image src={manInSuit} alt="Professional man wearing a tailored suit" />
               </div>
               <div>
-                <Image src={shelf} alt="shelf" />
+                <Image src={reflection} alt="Man's reflection in mirror showing attention to detail" />
               </div>
             </div>
             <Text className="py-20">
@@ -116,13 +116,13 @@ const LearnMorePage = async () => {
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="w-full md:w-1/3">
-                <Image src={books} alt="books" className="w-full" />
+                <Image src={manButtoning} alt="Man buttoning his tailored suit jacket" className="w-full" />
               </div>
               <div className="w-full md:w-1/3">
-                <Image src={sofa} alt="sofa" className="w-full" />
+                <Image src={manYellowShirt} alt="Man in a stylish yellow dress shirt" className="w-full" />
               </div>
               <div className="w-full md:w-1/3">
-                <Image src={portrait} alt="portrait" className="w-full" />
+                <Image src={cliffsideBuilding} alt="Luxurious building perched on a cliffside" className="w-full" />
               </div>
             </div>
             <Text className="py-20">

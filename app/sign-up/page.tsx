@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { createBrowserClient } from "@/libs/supabase/browser";
-import signup from "@/public/signup.png";
+import twoMenWithBags from "@/public/two-men-with-bags.jpg";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 import apiClient from "@/libs/api";
@@ -260,7 +260,7 @@ export default function Page() {
                 </div>
               </div>
               <div className="h-[853px] w-[556px] hidden md:block">
-                <Image src={signup} alt="sign up" className="h-[853px]" />
+                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags" className="h-[853px]" />
               </div>
             </div>
 
