@@ -10,7 +10,7 @@ import Header from "../_components/header";
 
 import shelf from "@/public/shelf.png";
 import podium from "@/public/podium.png";
-import hero from "@/public/hero.png";
+import hero from "@/public/hero.jpg";
 import sofa from "@/public/sofa.png";
 import portrait from "@/public/portrait.png";
 import books from "@/public/books.png";
