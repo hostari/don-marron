@@ -20,7 +20,7 @@ export default function LandingPage() {
         preload="auto"
       >
         <source
-          src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4"
+          src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video-20250115.mp4"
           type="video/mp4"
         />
       </video>

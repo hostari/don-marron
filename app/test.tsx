@@ -6,7 +6,7 @@
     autoPlay
     className="absolute top-0 left-0 w-full h-full object-cover overflow-hidden clipped-video"
   >
-    <source src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video.mp4" />
+    <source src="https://ficgpnsnuqnrabnvfqcv.supabase.co/storage/v1/object/public/videos/lp-video-20250115.mp4" />
   </video>
 
   <svg
