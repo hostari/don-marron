@@ -8,8 +8,8 @@ import { Text } from "@/components/ui/lp-text";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 
-import shelf from "@/public/shelf.png";
-import podium from "@/public/podium.png";
+import reflection from "@/public/reflection.jpg";
+import manInSuit from "@/public/man-in-suit.jpg";
 import hero from "@/public/hero.jpg";
 import sofa from "@/public/sofa.png";
 import portrait from "@/public/portrait.png";
@@ -84,10 +84,10 @@ const LearnMorePage = async () => {
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div>
-                <Image src={podium} alt="podium" />
+                <Image src={manInSuit} alt="Professional man wearing a tailored suit" />
               </div>
               <div>
-                <Image src={shelf} alt="shelf" />
+                <Image src={reflection} alt="Man's reflection in mirror showing attention to detail" />
               </div>
             </div>
             <Text className="py-20">
