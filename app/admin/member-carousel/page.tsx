@@ -81,13 +81,13 @@ export default function AdminMemberPageCarousel() {
     const { error } = await supabase
       .from("MemberPageCarousel")
       .delete()
-      .eq("id", id);
+      .eq("id", Number(id));
     if (error) {
       toast.error("Error deleting slide");
       console.error(error);
     } else {
       toast.success("Slide deleted successfully");
-      setSlides((prev) => prev.filter((item) => item.id !== id));
+      setSlides((prev) => prev.filter((item) => item.id !== Number(id)));
     }
   };
 
