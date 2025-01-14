@@ -119,10 +119,10 @@ const LearnMorePage = async () => {
                 <Image src={manButtoning} alt="Man buttoning his tailored suit jacket" className="w-full" />
               </div>
               <div className="w-full md:w-1/3">
-                <Image src={manYellowShirt} alt="Man in a stylish yellow dress shirt" className="w-full" />
+                <Image src={cliffsideBuilding} alt="Luxurious building perched on a cliffside" className="w-full" />
               </div>
               <div className="w-full md:w-1/3">
-                <Image src={cliffsideBuilding} alt="Luxurious building perched on a cliffside" className="w-full" />
+                <Image src={manYellowShirt} alt="Man in a stylish yellow dress shirt" className="w-full" />
               </div>
             </div>
             <Text className="py-20">
