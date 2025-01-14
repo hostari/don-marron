@@ -84,7 +84,7 @@ export default function AdminFAQPage() {
     const { error } = await supabase
       .from("FrequentlyAskedQuestions")
       .delete()
-      .eq("id", id);
+      .eq("id", Number(id));
     if (error) {
       toast.error("Error deleting FAQ item");
       console.error(error);
