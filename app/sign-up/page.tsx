@@ -31,21 +31,6 @@ export default function Page() {
     reason: "",
     fashionStyle: "",
   });
-  // const [formValue, setFormValue] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   birthDate: new Date().toISOString().split("T")[0],
-  //   address: "",
-  //   companyName: "",
-  //   title: "",
-  //   workEmail: "",
-  //   instagram: "",
-  //   facebook: "",
-  //   reason: "",
-  //   fashionStyle: "",
-  //   lifestyle: "",
-  // });
 
   const {
     firstName,
