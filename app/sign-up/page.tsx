@@ -93,6 +93,7 @@ export default function Page() {
                 <li>Facebook: ${formData.socials.facebook}</li>
                 <li>Reason: ${formData.reason}</li>
                 <li>Fashion Style: ${formData.fashionStyle}</li>
+                <li>Benefits: ${formData.benefits}</li>
                 <li>Birth Date: ${formData.birthDate}</li>
               </ul>`,
       });
