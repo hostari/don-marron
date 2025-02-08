@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import { Viewport } from "next";
-import PlausibleProvider from "next-plausible";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
@@ -23,11 +22,6 @@ export const metadata = getSEOTags();
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme={config.colors.theme} className={font.className}>
-      {config.domainName && (
-        <head>
-          <PlausibleProvider domain={config.domainName} />
-        </head>
-      )}
       <body className="">
         <ClientLayout>{children}</ClientLayout>
       </body>
