@@ -244,8 +244,8 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="h-[853px] w-[556px] hidden md:block">
-                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags"/>
+              <div className="h-[1000px] w-[556px] hidden md:block">
+                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags" height="1000"/>
               </div>
             </div>
 
