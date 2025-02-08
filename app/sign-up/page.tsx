@@ -292,13 +292,11 @@ export default function Page() {
                   name="benefits"
                   value={formValue.benefits}
                   onChange={onChange}
-                  placeholder="Consider our premium offerings:
-- Custom Made Garments
+                  placeholder="- Custom Made Garments
 - Exclusive Member Events
 - Personalized Styling Consultation
 - Personalized Look Book
 - Personalized Travel Experience"
-                  required
                 />
               </div>
             </div>
