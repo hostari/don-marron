@@ -272,7 +272,7 @@ export default function Page() {
               <div className="flex flex-col md:flex-row">
                 <Label
                   htmlFor="fashionStyle"
-                  className="text-lg w-full md:w-[30%]"
+                  className="text-lg w-full md:w-[30%] pr-1"
                 >
                   How would you describe your personal style?
                 </Label>
