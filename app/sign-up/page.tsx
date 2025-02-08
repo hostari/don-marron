@@ -260,7 +260,7 @@ export default function Page() {
                 </div>
               </div>
               <div className="h-[853px] w-[556px] hidden md:block">
-                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags" className="h-[853px]" />
+                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags"/>
               </div>
             </div>
 
