@@ -33,20 +33,22 @@ export default function LandingPage() {
         </div>
 
         <div className="flex flex-col justify-center items-center pt-[11rem] h-screen animate-fade-in">
-          <Button className="mt-8">
-            <Link href="/sign-up" className="uppercase w-[300px]">
-              Apply for Membership
-            </Link>
-          </Button>
         </div>
 
-        <div className="absolute bottom-[60px] md:bottom-[40px] left-[15px] md:left-[50px] p-4">
-          <Link
-            href="/learn-more"
-            className="text-white uppercase text-base md:text-xl"
-          >
-            Learn More
-          </Link>
+        <div className="absolute bottom-[60px] md:bottom-[40px] w-full px-[15px] md:px-[50px]">
+          <div className="flex justify-between items-center">
+            <Link
+              href="/learn-more"
+              className="text-white uppercase text-base md:text-xl"
+            >
+              Learn More
+            </Link>
+            <Button>
+              <Link href="/sign-up" className="uppercase">
+                Apply for Membership
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </>
