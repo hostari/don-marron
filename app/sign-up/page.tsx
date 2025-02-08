@@ -246,22 +246,6 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="benefits" className="text-lg">Which Don Marrón member benefits are you most interested in?</Label>
-                  <TextArea
-                    id="benefits"
-                    name="benefits"
-                    value={formValue.benefits}
-                    onChange={onChange}
-                    placeholder="Consider our premium offerings:
-- Custom Made Garments
-- Exclusive Member Events
-- Personalized Styling Consultation
-- Personalized Look Book
-- Personalized Travel Experience"
-                    required
-                  />
-                </div>
               </div>
               <div className="h-[1000px] w-[556px] hidden md:block">
                 <Image src={twoMenSeated} alt="Two well-dressed men in suits seated on a bench" height="1000"/>
@@ -298,6 +282,22 @@ export default function Page() {
                   value={fashionStyle}
                   onChange={onChange}
                   className="flex-1"
+                  required
+                />
+              </div>
+              <div className="flex flex-col md:flex-row">
+                <Label htmlFor="benefits" className="text-lg w-full md:w-[30%]">Which Don Marrón member benefits are you most interested in?</Label>
+                <TextArea
+                  id="benefits"
+                  name="benefits"
+                  value={formValue.benefits}
+                  onChange={onChange}
+                  placeholder="Consider our premium offerings:
+- Custom Made Garments
+- Exclusive Member Events
+- Personalized Styling Consultation
+- Personalized Look Book
+- Personalized Travel Experience"
                   required
                 />
               </div>
