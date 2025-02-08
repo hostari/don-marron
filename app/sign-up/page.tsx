@@ -290,13 +290,14 @@ export default function Page() {
                 <TextArea
                   id="benefits"
                   name="benefits"
-                  value={formValue.benefits}
+                  value={benefits}
                   onChange={onChange}
                   placeholder="- Custom Made Garments
 - Exclusive Member Events
 - Personalized Styling Consultation
 - Personalized Look Book
 - Personalized Travel Experience"
+                  className="flex-1"
                   required
                 />
               </div>
