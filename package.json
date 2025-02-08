@@ -33,7 +33,7 @@
     "lucide-react": "^0.376.0",
     "mailgun.js": "^9.4.1",
     "mongodb": "^6.0.0",
-    "mongoose": "^8.8.3",
+    "mongoose": "^8.9.5",
     "next": "^14.2.23",
     "next-auth": "^4.24.11",
     "next-plausible": "^3.12.0",
