@@ -51,10 +51,6 @@ export default function LandingPage() {
         </div>
 
         <div className="flex flex-col justify-center items-center pt-[11rem] h-screen animate-fade-in">
-          <h1 className="text-white text-2xl font-serif">
-            We connect you to a community <br /> that serves your ambition and
-            style
-          </h1>
 
           <Button className="mt-8">
             <Link href="/sign-up" className="uppercase w-[300px]">
