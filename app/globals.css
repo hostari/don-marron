@@ -10,6 +10,7 @@ html {
   &::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
+  background-color: #904216;
 }
 
 body {
