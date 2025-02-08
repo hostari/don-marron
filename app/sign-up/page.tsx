@@ -28,6 +28,7 @@ export default function Page() {
     workEmail: "",
     instagram: "",
     facebook: "",
+    benefits: "",
     reason: "",
     fashionStyle: "",
   });
@@ -42,6 +43,7 @@ export default function Page() {
     workEmail,
     instagram,
     facebook,
+    benefits,
     reason,
     fashionStyle,
     birthDate,
@@ -243,6 +245,23 @@ export default function Page() {
                     />
                   </div>
                 </div>
+
+                <div>
+                  <Label htmlFor="benefits" className="text-lg">Which Don Marrón member benefits are you most interested in?</Label>
+                  <TextArea
+                    id="benefits"
+                    name="benefits"
+                    value={formValue.benefits}
+                    onChange={onChange}
+                    placeholder="Consider our premium offerings:
+- Custom Made Garments
+- Exclusive Member Events
+- Personalized Styling Consultation
+- Personalized Look Book
+- Personalized Travel Experience"
+                    required
+                  />
+                </div>
               </div>
               <div className="h-[1000px] w-[556px] hidden md:block">
                 <Image src={twoMenSeated} alt="Two well-dressed men in suits seated on a bench" height="1000"/>
@@ -254,9 +273,9 @@ export default function Page() {
             <div className="flex flex-col gap-y-10 pb-[60px]">
               <div className="flex flex-col md:flex-row">
                 <Label htmlFor="reason" className="text-lg w-full md:w-[30%]">
-                  Why do you believe you would be a valuable addition to the Don
-                  Marrón Community?
+                  Please briefly share why you would be a good fit for the Don Marrón Community
                 </Label>
+                <p className="text-gray-500 text-sm mb-2">At Don Marrón, we focus on providing excellent products and services while also fostering a community of like-minded individuals.</p>
                 <TextArea
                   id="reason"
                   name="reason"
@@ -271,7 +290,7 @@ export default function Page() {
                   htmlFor="fashionStyle"
                   className="text-lg w-full md:w-[30%]"
                 >
-                  How would you define your fashion style?
+                  How would you describe your personal style?
                 </Label>
                 <TextArea
                   id="fashionStyle"
