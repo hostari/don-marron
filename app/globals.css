@@ -1,4 +1,11 @@
 @tailwind base;
+
+@layer base {
+  label {
+    @apply text-sm font-medium pb-2 block text-[#212427];
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 
