@@ -44,8 +44,7 @@ const LearnMorePage = async () => {
             src={
               content.find((item) => item.section === "hero")?.imageUrl || hero
             }
-            alt="hero image"
-            className="h-[200px] md:h-[60vh] w-full"
+            alt="Man standing on balcony looking out to distance"
           />
           <p className="w-full text-gray uppercase text-xl md:text-2xl tracking-widest py-10 text-center">
             Find Out More About
