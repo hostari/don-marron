@@ -274,7 +274,7 @@ export default function Page() {
                   htmlFor="fashionStyle"
                   className="text-lg w-full md:w-[30%]"
                 >
-                  How would you describe <span>your<br />personal</span> style?
+                  How would you describe your personal style?
                 </Label>
                 <TextArea
                   id="fashionStyle"
