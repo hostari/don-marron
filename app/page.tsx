@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <div className="overflow-hidden h-screen">
+    <>
       <video
         playsInline
         autoPlay
@@ -67,6 +67,6 @@ export default function LandingPage() {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 }
