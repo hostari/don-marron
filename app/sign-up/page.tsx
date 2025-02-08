@@ -259,13 +259,13 @@ export default function Page() {
                 <Label htmlFor="reason" className="text-lg w-full md:w-[30%]">
                   Please briefly share why you would be a good fit for the Don Marrón Community
                 </Label>
-                <p className="text-gray-500 text-sm mb-2">At Don Marrón, we focus on providing excellent products and services while also fostering a community of like-minded individuals.</p>
                 <TextArea
                   id="reason"
                   name="reason"
                   value={reason}
                   onChange={onChange}
                   className="flex-1"
+                  placeholder="At Don Marrón, we focus on providing excellent products and services while also fostering a community of like-minded individuals."
                   required
                 />
               </div>
