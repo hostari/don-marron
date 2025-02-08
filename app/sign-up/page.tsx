@@ -31,21 +31,6 @@ export default function Page() {
     reason: "",
     fashionStyle: "",
   });
-  // const [formValue, setFormValue] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   birthDate: new Date().toISOString().split("T")[0],
-  //   address: "",
-  //   companyName: "",
-  //   title: "",
-  //   workEmail: "",
-  //   instagram: "",
-  //   facebook: "",
-  //   reason: "",
-  //   fashionStyle: "",
-  //   lifestyle: "",
-  // });
 
   const {
     firstName,
@@ -259,8 +244,8 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="h-[853px] w-[556px] hidden md:block">
-                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags"/>
+              <div className="h-[1000px] w-[556px] hidden md:block">
+                <Image src={twoMenWithBags} alt="Two well-dressed men walking with luxury shopping bags" height="1000"/>
               </div>
             </div>
 
