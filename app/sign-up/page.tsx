@@ -246,22 +246,6 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="benefits" className="text-lg">Which Don Marrón member benefits are you most interested in?</Label>
-                  <TextArea
-                    id="benefits"
-                    name="benefits"
-                    value={formValue.benefits}
-                    onChange={onChange}
-                    placeholder="Consider our premium offerings:
-- Custom Made Garments
-- Exclusive Member Events
-- Personalized Styling Consultation
-- Personalized Look Book
-- Personalized Travel Experience"
-                    required
-                  />
-                </div>
               </div>
               <div className="h-[1000px] w-[556px] hidden md:block">
                 <Image src={twoMenSeated} alt="Two well-dressed men in suits seated on a bench" height="1000"/>
@@ -273,15 +257,15 @@ export default function Page() {
             <div className="flex flex-col gap-y-10 pb-[60px]">
               <div className="flex flex-col md:flex-row">
                 <Label htmlFor="reason" className="text-lg w-full md:w-[30%]">
-                  Please briefly share why you would be a good fit for the Don Marrón Community
+                  Please briefly share why you would be a good fit for the Don Marrón Community.
                 </Label>
-                <p className="text-gray-500 text-sm mb-2">At Don Marrón, we focus on providing excellent products and services while also fostering a community of like-minded individuals.</p>
                 <TextArea
                   id="reason"
                   name="reason"
                   value={reason}
                   onChange={onChange}
                   className="flex-1"
+                  placeholder="At Don Marrón, we focus on providing excellent products and services while also fostering a community of like-minded individuals."
                   required
                 />
               </div>
@@ -298,6 +282,21 @@ export default function Page() {
                   value={fashionStyle}
                   onChange={onChange}
                   className="flex-1"
+                  required
+                />
+              </div>
+              <div className="flex flex-col md:flex-row">
+                <Label htmlFor="benefits" className="text-lg w-full md:w-[30%]">Which Don Marrón member benefits are you most interested in?</Label>
+                <TextArea
+                  id="benefits"
+                  name="benefits"
+                  value={formValue.benefits}
+                  onChange={onChange}
+                  placeholder="- Custom Made Garments
+- Exclusive Member Events
+- Personalized Styling Consultation
+- Personalized Look Book
+- Personalized Travel Experience"
                   required
                 />
               </div>
