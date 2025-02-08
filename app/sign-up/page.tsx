@@ -257,7 +257,7 @@ export default function Page() {
             <div className="flex flex-col gap-y-10 pb-[60px]">
               <div className="flex flex-col md:flex-row">
                 <Label htmlFor="reason" className="text-lg w-full md:w-[30%]">
-                  Please briefly share why you would be a good fit for the Don Marrón Community
+                  Please briefly share why you would be a good fit for the Don Marrón Community.
                 </Label>
                 <TextArea
                   id="reason"
@@ -297,6 +297,7 @@ export default function Page() {
 - Personalized Styling Consultation
 - Personalized Look Book
 - Personalized Travel Experience"
+                  required
                 />
               </div>
             </div>
