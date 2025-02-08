@@ -274,7 +274,7 @@ export default function Page() {
                   htmlFor="fashionStyle"
                   className="text-lg w-full md:w-[30%]"
                 >
-                  How would you describe your personal style?
+                  How would you describe your<br />personal style?
                 </Label>
                 <TextArea
                   id="fashionStyle"
@@ -292,11 +292,7 @@ export default function Page() {
                   name="benefits"
                   value={benefits}
                   onChange={onChange}
-                  placeholder="- Custom Made Garments
-- Exclusive Member Events
-- Personalized Styling Consultation
-- Personalized Look Book
-- Personalized Travel Experience"
+                  placeholder="Custom Made Garments, Exclusive Member Events, Personalized Styling Consultation, Personalized Look Book, Personalized Travel Experience"
                   className="flex-1"
                   required
                 />
