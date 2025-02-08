@@ -1,12 +1,12 @@
 "use client";
 
+import "./sign-in.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@/libs/supabase/browser";
-import "./sign-in.css";
 import { Divider } from "@/components/ui/divider";
 import Header from "../_components/header";
 import Link from "next/link";
