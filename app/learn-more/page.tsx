@@ -83,10 +83,10 @@ const LearnMorePage = async () => {
             </Text>
             <div className="flex flex-col md:flex-row gap-4">
               <div>
-                <Image src={manInSuit} alt="Professional man wearing a tailored suit" />
+                <Image src={manInSuit} alt="Professional man wearing a tailored suit" height="710" />
               </div>
               <div>
-                <Image src={reflection} alt="Man's reflection in mirror showing attention to detail" />
+                <Image src={reflection} alt="Man's reflection in mirror showing attention to detail" height="710" />
               </div>
             </div>
             <Text className="py-20">
