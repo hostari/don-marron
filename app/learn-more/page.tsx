@@ -81,11 +81,11 @@ const LearnMorePage = async () => {
             <Text>
               {content.find((item) => item.section === "brand")?.content || ""}
             </Text>
-            <div className="flex flex-col md:flex-row gap-4">
-              <div>
+            <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+              <div className="flex justify-center">
                 <Image src={manInSuit} alt="Professional man wearing a tailored suit" height="710" />
               </div>
-              <div>
+              <div className="flex justify-center">
                 <Image src={reflection} alt="Man's reflection in mirror showing attention to detail" height="710" />
               </div>
             </div>
