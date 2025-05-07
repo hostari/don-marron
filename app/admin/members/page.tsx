@@ -78,6 +78,87 @@ export default function AdminPage() {
     }
   };
 
+  const handleRemoveFile = async (type: "wardrobe" | "contract") => {
+    if (!selectedMember) return;
+    
+    const filePath = `${selectedMember.id}/${type}.pdf`;
+    const { error: deleteError } = await supabase.storage
+      .from("files")
+      .remove([filePath]);
+
+    if (deleteError) {
+      toast.error(`Error removing ${type} file: ${deleteError.message}`);
+      return;
+    }
+
+    // Update the member record to indicate the file has been removed
+    const updateData = type === "wardrobe" ? { hasWardrobe: false } : { hasContract: false };
+    const { error: updateError } = await supabase
+      .from("Members")
+      .update(updateData)
+      .eq("id", selectedMember.id);
+
+    if (updateError) {
+      toast.error(`Error updating member record: ${updateError.message}`);
+      return;
+    }
+
+    // Update local state
+    setSelectedMember({
+      ...selectedMember,
+      ...(type === "wardrobe" ? { hasWardrobe: false } : { hasContract: false })
+    });
+    
+    toast.success(`${type} file removed successfully`);
+  };
+
+  const handleDeleteUser = async () => {
+    if (!selectedMember || !confirm("Are you sure you want to delete this user? This action cannot be undone.")) {
+      return;
+    }
+
+    // Delete user's files first
+    const { error: storageError } = await supabase.storage
+      .from("files")
+      .remove([
+        `${selectedMember.id}/wardrobe.pdf`,
+        `${selectedMember.id}/contract.pdf`
+      ]);
+
+    if (storageError) {
+      console.error("Error deleting user files:", storageError);
+    }
+
+    // Delete user from Members table
+    const { error: memberError } = await supabase
+      .from("Members")
+      .delete()
+      .eq("id", selectedMember.id);
+
+    if (memberError) {
+      toast.error(`Error deleting member: ${memberError.message}`);
+      return;
+    }
+
+    // Delete user from Auth
+    const { error: authError } = await supabase.auth.admin.deleteUser(
+      selectedMember.id
+    );
+
+    if (authError) {
+      toast.error(`Error deleting user authentication: ${authError.message}`);
+      return;
+    }
+
+    // Update local state
+    setMembers(members.filter(m => m.id !== selectedMember.id));
+    setSelectedMember(null);
+    localStorage.removeItem("selectedMemberId");
+    
+    toast.success("User deleted successfully");
+    window.location.href = "/admin/members";
+  };
+
   const generateSignedUrl = async (
     memberId: string,
     type: "wardrobe" | "contract",
@@ -181,15 +262,23 @@ export default function AdminPage() {
                   <div>
                     <Label>Wardrobe PDF:</Label>
                     {selectedMember.hasWardrobe && (
-                      <Button
-                        variant="outline"
-                        onClick={() =>
-                          generateSignedUrl(selectedMember.id, "wardrobe")
-                        }
-                        className="text-blue-500 underline"
-                      >
-                        View Wardrobe PDF
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            generateSignedUrl(selectedMember.id, "wardrobe")
+                          }
+                          className="text-blue-500 underline"
+                        >
+                          View Wardrobe PDF
+                        </Button>
+                        <Button
+                          variant="destructive"
+                          onClick={() => handleRemoveFile("wardrobe")}
+                        >
+                          Remove
+                        </Button>
+                      </div>
                     )}
                     <input
                       type="file"
@@ -200,15 +289,23 @@ export default function AdminPage() {
                   <div>
                     <Label>Contract:</Label>
                     {selectedMember.hasContract && (
-                      <Button
-                        variant="outline"
-                        onClick={() =>
-                          generateSignedUrl(selectedMember.id, "contract")
-                        }
-                        className="text-blue-500 underline"
-                      >
-                        View Contract
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            generateSignedUrl(selectedMember.id, "contract")
+                          }
+                          className="text-blue-500 underline"
+                        >
+                          View Contract
+                        </Button>
+                        <Button
+                          variant="destructive"
+                          onClick={() => handleRemoveFile("contract")}
+                        >
+                          Remove
+                        </Button>
+                      </div>
                     )}
                     <input
                       type="file"
@@ -227,6 +324,13 @@ export default function AdminPage() {
                       className="text-blue-500 underline"
                     >
                       Send Reset Password Email
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      onClick={handleDeleteUser}
+                      className="mt-4"
+                    >
+                      Delete User
                     </Button>
                   </div>
                 </div>
