@@ -39,7 +39,7 @@
     "next-sitemap": "^4.2.3",
     "next-video": "^1.1.0",
     "nextjs-toploader": "^1.6.11",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^7.0.7",
     "posthog-js": "^1.139.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
